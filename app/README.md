@@ -20,5 +20,9 @@ npm run build
 npm run lint
 ```
 
+#In .env.local file
+VUE_APP_COGNITO_USERPOOL_ID=krusers
+VUE_APP_COGNITO_APP_DOMAIN=krusers.auth.ap-northeast-2.amazoncognito.com
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
