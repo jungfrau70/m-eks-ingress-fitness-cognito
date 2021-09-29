@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fitness
+  namespace: fitness
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app : fitness
+  template:
+    metadata:
+      labels:
+        app : fitness
+    spec:
+      containers:
+        - name: fitness
+          image: 596906176357.dkr.ecr.ap-northeast-2.amazonaws.com/fitness-vue:0.2
+          ports:
+            - containerPort: 8080

@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    alb.ingress.kubernetes.io/auth-idp-cognito: '{"UserPoolArn":"arn:aws:cognito-idp:ap-northeast-2:596906176357:userpool/ap-northeast-2_mCAntIjRq","UserPoolClientId":"3gnvcakr6quq0j6pthc3p5jjuv",
+      "UserPoolDomain":"kfusers.auth.ap-northeast-2.amazoncognito.com"}'
+    alb.ingress.kubernetes.io/auth-type: cognito
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-northeast-2:596906176357:certificate/8ec567fd-fd03-4a57-b837-fead72c6d100
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    kubernetes.io/ingress.class: alb
+  labels:
+    app : fitness
+  name: fitness-ingress
+  namespace: fitness
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          serviceName: fitness
+          servicePort: 8080
+        path: /
