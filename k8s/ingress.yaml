@@ -11,14 +11,14 @@ metadata:
     alb.ingress.kubernetes.io/target-type: ip
     kubernetes.io/ingress.class: alb
   labels:
-    app : fitness
-  name: fitness-ingress
-  namespace: fitness
+    app : frontend-od
+  name: od-ingress
+  namespace: od
 spec:
   rules:
   - http:
       paths:
       - backend:
-          serviceName: fitness
+          serviceName: frontend-od
           servicePort: 8080
         path: /

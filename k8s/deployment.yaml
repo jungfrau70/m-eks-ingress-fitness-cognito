@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fitness
-  namespace: fitness
+  name: frontend-od
+  namespace: od
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app : fitness
+      app : frontend-od
   template:
     metadata:
       labels:
-        app : fitness
+        app : frontend-od
     spec:
       containers:
-        - name: fitness
-          image: 596906176357.dkr.ecr.ap-northeast-2.amazonaws.com/fitness-vue:0.2
+        - name: frontend-od
+          image: 596906176357.dkr.ecr.ap-northeast-2.amazonaws.com/frontend-od-vue:0.1
           ports:
             - containerPort: 8080
